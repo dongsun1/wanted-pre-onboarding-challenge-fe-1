@@ -1,4 +1,7 @@
 export interface ITodo {
-  todo: string;
-  checked: boolean;
+  title: string;
+  content: string;
+  id: string;
+  createdAt: string;
+  updatedAt: string;
 }

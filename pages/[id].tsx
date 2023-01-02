@@ -3,12 +3,17 @@ import TodoList from "../components/todoList";
 import TodoContent from "../components/todoContent";
 import AddTodo from "../components/addTodo";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import api from "./api";
-import { ITodo } from "../interfaces/todo.interface";
+import { useTodoStore } from "../store/todo";
+
+interface ITodo {
+  todo: string;
+  checked: boolean;
+}
 
 export default function Home() {
-  const [todos, setTodos] = useState<ITodo[]>([]);
+  const { todos, setTodos } = useTodoStore();
   const router = useRouter();
 
   useEffect(() => {
