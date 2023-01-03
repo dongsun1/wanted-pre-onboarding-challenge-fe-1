@@ -48,6 +48,7 @@ export default function Todo({
       setTodo(response.data.data);
       onClickClose();
     } catch (error) {
+      localStorage.removeItem("login-token");
       router.push("/login");
     }
   };
@@ -60,6 +61,7 @@ export default function Todo({
       setTodo({ title: "", content: "", id: "", createdAt: "", updatedAt: "" });
       router.push("/");
     } catch (error) {
+      localStorage.removeItem("login-token");
       router.push("/login");
     }
   };

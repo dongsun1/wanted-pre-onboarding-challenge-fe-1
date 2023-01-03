@@ -14,6 +14,7 @@ export default function Home() {
         const response = await api.get(`/todos/${id}`);
         setTodo(response.data.data);
       } catch (error) {
+        localStorage.removeItem("login-token");
         router.push("/login");
       }
     };

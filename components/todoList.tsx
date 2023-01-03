@@ -13,6 +13,7 @@ export default function TodoList() {
       const response = await api.get("/todos");
       setTodos(response.data.data);
     } catch (error) {
+      localStorage.removeItem("login-token");
       router.push("/login");
     }
   };

@@ -42,6 +42,7 @@ export default function AddTodo() {
       setContent("");
       setOpen(false);
     } catch (error) {
+      localStorage.removeItem("login-token");
       router.push("/login");
     }
   };
