@@ -9,12 +9,14 @@ const api = axios.create({
 });
 
 api.interceptors.request.use((config: AxiosRequestConfig) => {
-  const loginToken = localStorage.getItem("login-token");
+  if (typeof localStorage !== "undefined") {
+    const loginToken = localStorage.getItem("login-token");
 
-  if (loginToken && config.headers) {
-    (config.headers as { [header: string]: string | string[] })[
-      "Authorization"
-    ] = `Bearer ${loginToken}`;
+    if (loginToken && config.headers) {
+      (config.headers as { [header: string]: string | string[] })[
+        "Authorization"
+      ] = `Bearer ${loginToken}`;
+    }
   }
   return config;
 });

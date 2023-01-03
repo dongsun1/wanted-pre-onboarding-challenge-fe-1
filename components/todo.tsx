@@ -1,8 +1,8 @@
 import { Button, Checkbox, TextField } from "@mui/material";
+import Link from "next/link";
 import { useState } from "react";
-import { ITodo } from "../interfaces/todo.interface";
 
-export default function Todo({ title }: { title: string }) {
+export default function Todo({ id, title }: { id: string; title: string }) {
   const [isUpdate, setIsUpdate] = useState(false);
 
   const onClickUpdate = () => {
@@ -14,7 +14,10 @@ export default function Todo({ title }: { title: string }) {
   };
 
   return (
-    <div className="flex border rounded w-5/6 h-16 items-center justify-between p-4">
+    <Link
+      className="flex border rounded w-96 h-16 items-center justify-between p-4 cursor-pointer"
+      href={`/${id}`}
+    >
       <div className="flex items-center">
         {isUpdate ? (
           <TextField
@@ -43,6 +46,6 @@ export default function Todo({ title }: { title: string }) {
           </div>
         )}
       </div>
-    </div>
+    </Link>
   );
 }
