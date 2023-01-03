@@ -8,7 +8,7 @@ export default function AddTodo() {
   const [open, setOpen] = useState(false);
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
-  const { setTodos } = useTodoStore();
+  const { addTodo } = useTodoStore();
   const router = useRouter();
 
   const handleClickOpen = () => {
@@ -36,7 +36,10 @@ export default function AddTodo() {
         title,
         content,
       });
-      setTodos(response.data.data);
+
+      addTodo(response.data.data);
+      setTitle("");
+      setContent("");
       setOpen(false);
     } catch (error) {
       router.push("/login");

@@ -81,7 +81,7 @@ export default function SignUp() {
         password,
       });
 
-      alert(response.message);
+      alert(response.data.message);
       router.push("/login");
     } catch (error: any) {
       alert(error.response.data.details);
@@ -130,11 +130,11 @@ export default function SignUp() {
           />
         </FormControl>
         <FormControl className="w-64 mb-2" variant="outlined" size="small">
-          <InputLabel htmlFor="outlined-adornment-password">
+          <InputLabel htmlFor="outlined-adornment-password2">
             Password Check
           </InputLabel>
           <OutlinedInput
-            id="outlined-adornment-password"
+            id="outlined-adornment-password2"
             type={showPassword ? "text" : "password"}
             endAdornment={
               <InputAdornment position="end">

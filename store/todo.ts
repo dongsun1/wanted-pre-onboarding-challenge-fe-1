@@ -4,6 +4,7 @@ import { ITodo } from "../interfaces/todo.interface";
 interface IUseTodoStore {
   todos: ITodo[];
   setTodos: (todos: ITodo[]) => void;
+  addTodo: (todo: ITodo) => void;
 }
 
 interface IUseCurrentTodoStore {
@@ -15,6 +16,8 @@ interface IUseCurrentTodoStore {
 export const useTodoStore = create<IUseTodoStore>((set) => ({
   todos: [],
   setTodos: (todos: ITodo[]) => set((state) => ({ ...state, todos })),
+  addTodo: (todo: ITodo) =>
+    set((state) => ({ ...state, todos: [...state.todos, todo] })),
 }));
 
 export const useCurrentTodoStore = create<IUseCurrentTodoStore>((set) => ({

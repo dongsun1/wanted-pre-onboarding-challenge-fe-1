@@ -24,10 +24,10 @@ export default function TodoList() {
   return (
     <div>
       {todos.length
-        ? todos.map(({ id, title }) => {
+        ? todos.map(({ id, title, content }) => {
             return (
               <div key={id} className="flex w-full justify-center mt-2">
-                <Todo id={id} title={title} />
+                <Todo id={id} title={title} content={content} />
               </div>
             );
           })
